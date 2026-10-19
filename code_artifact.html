@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الذكاء العاطفي في بيئة العمل | مركز تدريب مجلس الجمعيات التعاونية</title>
+    <!-- خطوط جوجل: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome للأيقونات التفاعلية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cscs: {
+                            50: '#f0f9fa',
+                            100: '#d7f0f4',
+                            200: '#b4e2e9',
+                            300: '#7eccd9',
+                            400: '#3faec1',
+                            500: '#008ba3',
+                            600: '#006c7e', // لون الهوية البترولي الرئيسي
+                            700: '#075a68',
+                            800: '#0b4a56',
+                            900: '#0c3d47',
+                            950: '#04252d',
+                        },
+                        gold: {
+                            400: '#f6c343',
+                            500: '#d4a017',
+                            600: '#b8860b',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #006c7e;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #075a68;
+        }
+
+        /* تحريك تنفس تكتيكي Box Breathing */
+        @keyframes breathCycle {
+            0%, 100% { transform: scale(1); border-color: #3faec1; }
+            25% { transform: scale(1.35); border-color: #008ba3; }
+            50% { transform: scale(1.35); border-color: #f6c343; }
+            75% { transform: scale(1); border-color: #075a68; }
+        }
+        .breathing-circle {
+            animation: breathCycle 16s infinite ease-in-out;
+        }
+
+        /* شارات التثبيت والظلال الناعمة */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 108, 126, 0.12);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(126, 204, 217, 0.2);
+        }
+
+        /* طباعة الشهادة بشكل منفصل ومثالي */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printableCertificate, #printableCertificate * {
+                visibility: visible;
+            }
+            #printableCertificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- شريط الإعلان والتنويه العلوي القيادي -->
+    <div class="bg-cscs-900 text-white text-xs md:text-sm py-2 px-4 border-b border-cscs-700">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-cscs-600 text-white border border-cscs-400">
+                    حقيبة تدريبية معتمدة
+                </span>
+                <span>بوابة التعليم والتدريب التنفيذي | مجلس الجمعيات التعاونية بالمملكة العربية السعودية</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-slate-300">
+                <span class="hover:text-gold-400 transition-colors cursor-pointer" onclick="scrollToSection('instructionsModal')"><i class="fa-solid fa-circle-info ml-1"></i> دليل المتدرب</span>
+                <span class="hidden sm:inline">|</span>
+                <span id="readingTimeIndicator"><i class="fa-regular fa-clock ml-1"></i> مدة التعلم التقديرية: 3 ساعات تفاعلية</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس الرئيسي مع الشعار وعناصر التحكم (Header) -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- الشعار الرسمي لمركز التدريب المطابق للهوية -->
+                <a href="#hero" class="flex items-center gap-3 group focus:outline-none" aria-label="الرئيسية">
+                    <!-- أيقونة الشعار الهندسية المنحوتة لـ CSCS -->
+                    <div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center bg-cscs-50 dark:bg-cscs-950/60 rounded-xl p-1.5 border border-cscs-200 dark:border-cscs-700/60 shadow-sm group-hover:scale-105 transition-transform">
+                        <svg viewBox="0 0 100 100" class="w-full h-full text-cscs-600 dark:text-cscs-400 fill-current" preserveAspectRatio="xMidYMid meet">
+                            <!-- المحاكاة الفيكتورية الدقيقة لرمز مجلس الجمعيات التعاونية -->
+                            <path d="M78 8 L95 24 L95 92 L78 92 Z" fill="#006c7e"/>
+                            <path d="M52 24 L70 40 L70 92 L52 92 Z" fill="#008ba3"/>
+                            <path d="M26 40 L44 56 L44 92 L26 92 Z" fill="#3faec1"/>
+                            <path d="M48 64 C48 58 53 53 60 53 L70 53 L70 61 L60 61 C58 61 56 63 56 65 L56 75 C56 77 58 79 60 79 L70 79 L70 87 L60 87 C53 87 48 82 48 76 Z" fill="#ffffff" opacity="0.95"/>
+                        </svg>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="text-cscs-700 dark:text-cscs-300 font-extrabold text-base sm:text-lg md:text-xl tracking-tight leading-tight flex items-center gap-1.5">
+                            مركز مجلس الجمعيات التعاونية للتدريب
+                        </div>
+                        <div class="text-[11px] sm:text-xs text-cscs-600/80 dark:text-slate-400 font-semibold tracking-wider font-tajawal uppercase">
+                            Cooperative Societies Council Training Center
+                        </div>
+                    </div>
+                </a>
+
+                <!-- القائمة الرئيسية للتنقل -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+                    <button onclick="navigateToTab('overview')" class="nav-tab-btn active px-3 py-2 rounded-lg text-sm font-bold text-cscs-700 dark:text-cscs-300 hover:bg-cscs-50 dark:hover:bg-slate-800 transition-colors" data-target="overview">
+                        <i class="fa-solid fa-compass ml-1 text-cscs-600"></i> نظرة عامة
+                    </button>
+                    <button onclick="navigateToTab('module1')" class="nav-tab-btn px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-cscs-50 dark:hover:bg-slate-800 transition-colors" data-target="module1">
+                        <span class="inline-block w-5 h-5 rounded-full bg-cscs-100 dark:bg-cscs-900/60 text-cscs-700 dark:text-cscs-300 text-xs text-center leading-5 ml-1 font-bold">1</span>
+                        ماهية الذكاء العاطفي
+                    </button>
+                    <button onclick="navigateToTab('module2')" class="nav-tab-btn px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-cscs-50 dark:hover:bg-slate-800 transition-colors" data-target="module2">
+                        <span class="inline-block w-5 h-5 rounded-full bg-cscs-100 dark:bg-cscs-900/60 text-cscs-700 dark:text-cscs-300 text-xs text-center leading-5 ml-1 font-bold">2</span>
+                        القيادة وبيئة العمل
+                    </button>
+                    <button onclick="navigateToTab('module3')" class="nav-tab-btn px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-cscs-50 dark:hover:bg-slate-800 transition-colors" data-target="module3">
+                        <span class="inline-block w-5 h-5 rounded-full bg-cscs-100 dark:bg-cscs-900/60 text-cscs-700 dark:text-cscs-300 text-xs text-center leading-5 ml-1 font-bold">3</span>
+                        التنمية والتطبيقات
+                    </button>
+                    <button onclick="navigateToTab('assessmentTab')" class="nav-tab-btn px-3 py-2 rounded-lg text-sm font-bold bg-gold-400/20 text-gold-600 dark:text-gold-400 hover:bg-gold-400/30 transition-all border border-gold-400/40" data-target="assessmentTab">
+                        <i class="fa-solid fa-chart-pie ml-1"></i> مقياس EQ الذاتي
+                    </button>
+                </nav>
+
+                <!-- أزرار الإمكانية والمساعدة والوضع المظلم -->
+                <div class="flex items-center gap-2">
+                    <!-- تحكم حجم الخط للتصميم الشامل الشامل Accessible -->
+                    <div class="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1 border border-slate-200 dark:border-slate-700">
+                        <button onclick="changeFontSize(-1)" title="تصغير الخط" class="w-7 h-7 flex items-center justify-center text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 rounded transition-all">A-</button>
+                        <button onclick="changeFontSize(1)" title="تكبير الخط" class="w-7 h-7 flex items-center justify-center text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 rounded transition-all">A+</button>
+                    </div>
+
+                    <!-- زر تبديل الوضع الليلي/النهاري -->
+                    <button id="themeToggleBtn" onclick="toggleDarkMode()" aria-label="تبديل النمط" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-cscs-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline text-gold-400"></i>
+                    </button>
+
+                    <!-- زر القائمة للأجهزة الذكية -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التقدم التعليمي الكلي الدائم -->
+        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 overflow-hidden">
+            <div id="courseProgressBar" class="bg-gradient-to-l from-gold-400 via-cscs-500 to-cscs-600 h-full w-[10%] transition-all duration-500 ease-out"></div>
+        </div>
+
+        <!-- القائمة الجانبية للشاشات المحمولة -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <button onclick="navigateToTab('overview'); toggleMobileMenu()" class="w-full text-right py-2 px-3 rounded-lg text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-cscs-50 dark:hover:bg-slate-800">نظرة عامة والتمهيد</button>
+            <button onclick="navigateToTab('module1'); toggleMobileMenu()" class="w-full text-right py-2 px-3 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-cscs-50 dark:hover:bg-slate-800">الوحدة 1: ماهية الذكاء العاطفي وأبعاده</button>
+            <button onclick="navigateToTab('module2'); toggleMobileMenu()" class="w-full text-right py-2 px-3 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-cscs-50 dark:hover:bg-slate-800">الوحدة 2: الذكاء العاطفي في بيئات العمل والقيادة</button>
+            <button onclick="navigateToTab('module3'); toggleMobileMenu()" class="w-full text-right py-2 px-3 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-cscs-50 dark:hover:bg-slate-800">الوحدة 3: تنمية الذكاء العاطفي وتطبيقاته العملية</button>
+            <button onclick="navigateToTab('assessmentTab'); toggleMobileMenu()" class="w-full text-right py-2 px-3 rounded-lg text-sm font-bold text-cscs-700 dark:text-cscs-300 bg-cscs-50 dark:bg-cscs-950/60">مقياس التقييم الذاتي للذكاء العاطفي (EQ)</button>
+            <button onclick="navigateToTab('finalExamTab'); toggleMobileMenu()" class="w-full text-right py-2 px-3 rounded-lg text-sm font-bold text-gold-600 dark:text-gold-400 bg-gold-400/10">الاختبار النهائي والشهادة المعتمدة</button>
+        </div>
+    </header>
+
+    <!-- المحتوى التعليمي الرئيسي -->
+    <main id="mainContainer" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- القسم التمهيدي والبانر الرئاسي (Overview) -->
+        <section id="tab-overview" class="tab-content block space-y-10">
+            <!-- Hero Banner الهوية المؤسسية -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cscs-800 via-cscs-700 to-cscs-900 text-white p-8 md:p-12 shadow-xl border border-cscs-600">
+                <div class="absolute -left-10 -bottom-10 w-80 h-80 bg-cscs-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute right-0 top-0 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="relative z-10 max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold mb-5 text-gold-300">
+                        <i class="fa-solid fa-award"></i> الحقيبة التدريبية النوعية لتمكين الكفاءات التعاونية والإدارية
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4 tracking-tight">
+                        الذَّكَاءُ العَاطِفِيُّ <br><span class="text-transparent bg-clip-text bg-gradient-to-l from-gold-300 to-cscs-200">فِي بِيْئِةِ العَمَلِ</span>
+                    </h1>
+                    <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 font-light">
+                        منهج علمي تفاعلي متقدم يهدف إلى تطوير القدرات الانفعالية، وبناء القيادة التحويلية، وتعزيز الإنتاجية المؤسسية وفق أحدث النماذج العالمية المعتمدة.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button onclick="navigateToTab('module1')" class="px-7 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <span>ابدأ رحلة التعلم الآن</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button onclick="navigateToTab('assessmentTab')" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-base border border-white/25 backdrop-blur-md transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-chart-simple text-gold-400"></i>
+                            <span>قياس مستوى ذكائك العاطفي</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- إحصائيات سريعة للحقيبة -->
+                <div class="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-3 bg-white/5 rounded-xl backdrop-blur-sm">
+                        <div class="text-2xl lg:text-3xl font-extrabold text-gold-300">3</div>
+                        <div class="text-xs text-slate-300 mt-1 font-tajawal">وحدات تدريبية متكاملة</div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-xl backdrop-blur-sm">
+                        <div class="text-2xl lg:text-3xl font-extrabold text-gold-300">5</div>
+                        <div class="text-xs text-slate-300 mt-1 font-tajawal">أبعاد رئيسية لجولمان</div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-xl backdrop-blur-sm">
+                        <div class="text-2xl lg:text-3xl font-extrabold text-gold-300">100%</div>
+                        <div class="text-xs text-slate-300 mt-1 font-tajawal">تطبيقات عملية وسيناريوهات</div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-xl backdrop-blur-sm">
+                        <div class="text-2xl lg:text-3xl font-extrabold text-gold-300">معتمدة</div>
+                        <div class="text-xs text-slate-300 mt-1 font-tajawal">شهادة إنجاز فورية</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خريطة مسار الحقيبة التدريبية الشاملة -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100 dark:border-slate-800">
+                    <div>
+                        <h2 class="text-2xl font-bold text-cscs-800 dark:text-cscs-200">خارطة المنهاج والمسار التعليمي</h2>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">تتبع الترتيب والتسلسل المعرفي الأصلي بدقة متناهية</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-cscs-100 dark:bg-cscs-950 text-cscs-700 dark:text-cscs-300 border border-cscs-200 dark:border-cscs-800">
+                        3 مراحل تخصصية
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- كرت الوحدة الأولى -->
+                    <div class="group relative bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/50 dark:to-slate-900 rounded-2xl p-6 border-2 border-cscs-500/20 hover:border-cscs-500 transition-all hover:shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-cscs-600 text-white font-black flex items-center justify-center text-lg shadow-md">1</span>
+                                <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 bg-cscs-50 dark:bg-cscs-950 px-2.5 py-1 rounded-full">الأسس والنماذج</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cscs-600 dark:group-hover:text-cscs-400 transition-colors">ماهية الذكاء العاطفي وأبعاده الرئيسة</h3>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> التحول من IQ إلى EQ ومفهوم جولمان</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> الجانب الذاتي والاجتماعي (ماير وسالوفي)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> مكونات الذكاء العاطفي الـ 5</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> مقارنة النماذج (ماير وسالوفي، جولمان، بار-أون)</li>
+                            </ul>
+                        </div>
+                        <button onclick="navigateToTab('module1')" class="w-full py-2.5 rounded-xl bg-cscs-50 dark:bg-cscs-950/80 text-cscs-700 dark:text-cscs-300 font-bold text-xs hover:bg-cscs-600 hover:text-white dark:hover:bg-cscs-600 transition-all flex items-center justify-center gap-2">
+                            <span>استعراض الوحدة الأولى</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <!-- كرت الوحدة الثانية -->
+                    <div class="group relative bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/50 dark:to-slate-900 rounded-2xl p-6 border-2 border-cscs-500/20 hover:border-cscs-500 transition-all hover:shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-cscs-700 text-white font-black flex items-center justify-center text-lg shadow-md">2</span>
+                                <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 bg-cscs-50 dark:bg-cscs-950 px-2.5 py-1 rounded-full">القيادة والمؤسسات</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cscs-600 dark:group-hover:text-cscs-400 transition-colors">الذكاء العاطفي في بيئات العمل والقيادة</h3>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> دور EQ في قيادة القرن الـ 21</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> الأداء المؤسسي وتجارب Google و Microsoft</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> إدارة التغيير ومقاومة الموظفين</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> فن التواصل الإداري ولغة الجسد والتأمل</li>
+                            </ul>
+                        </div>
+                        <button onclick="navigateToTab('module2')" class="w-full py-2.5 rounded-xl bg-cscs-50 dark:bg-cscs-950/80 text-cscs-700 dark:text-cscs-300 font-bold text-xs hover:bg-cscs-600 hover:text-white dark:hover:bg-cscs-600 transition-all flex items-center justify-center gap-2">
+                            <span>استعراض الوحدة الثانية</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <!-- كرت الوحدة الثالثة -->
+                    <div class="group relative bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/50 dark:to-slate-900 rounded-2xl p-6 border-2 border-cscs-500/20 hover:border-cscs-500 transition-all hover:shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-cscs-800 text-white font-black flex items-center justify-center text-lg shadow-md">3</span>
+                                <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 bg-cscs-50 dark:bg-cscs-950 px-2.5 py-1 rounded-full">التطبيق والمستقبل</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cscs-600 dark:group-hover:text-cscs-400 transition-colors">تنمية الذكاء العاطفي وتطبيقاته العملية</h3>
+                            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> استراتيجيات التنمية وإعادة التقييم المعرفي</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> التطبيقات الحياتية والصحة النفسية</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> مقاييس التقييم (MSCEIT, Bar-On, Goleman)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cscs-500 text-[10px]"></i> الذكاء العاطفي في عصر الذكاء الاصطناعي (AI)</li>
+                            </ul>
+                        </div>
+                        <button onclick="navigateToTab('module3')" class="w-full py-2.5 rounded-xl bg-cscs-50 dark:bg-cscs-950/80 text-cscs-700 dark:text-cscs-300 font-bold text-xs hover:bg-cscs-600 hover:text-white dark:hover:bg-cscs-600 transition-all flex items-center justify-center gap-2">
+                            <span>استعراض الوحدة الثالثة</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مصفوفة الأهداف ومخرجات التعلم المستهدفة -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-2xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-cscs-100 dark:bg-cscs-900/60 text-cscs-600 dark:text-cscs-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-cscs-800 dark:text-cscs-200">الهدف العام للبرنامج التدريبي</h3>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        تمكين الكوادر الإدارية والقيادية في الجمعيات التعاونية والمؤسسات الوطنية من اكتساب المهارات السلوكية والعاطفية المتقدمة التي تضمن إدارة الضغوط، وبناء فرق عمل متماسكة، وتعزيز الاستقرار المؤسسي والإنتاجية العالية في ظل التغيرات المتسارعة.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/20 text-gold-600 dark:text-gold-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-cscs-800 dark:text-cscs-200">المخرجات التعليمية المتوقعة</h3>
+                    </div>
+                    <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <span>التمييز الدقيق بين الذكاء المعرفي (IQ) والذكاء العاطفي (EQ) واستيعاب مكونات جولمان.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <span>تطبيق استراتيجيات قيادة التغيير والتواصل الإداري الإنساني الفعال في المنظمة.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <span>استخدام أدوات إعادة التقييم المعرفي والتنفس والتأمل لمواجهة الاحتراق الوظيفي.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- الوحدة الأولى: ماهية الذكاء العاطفي وأبعاده الرئيسة -->
+        <!-- ============================================== -->
+        <section id="tab-module1" class="tab-content hidden space-y-10">
+            <!-- ترويسة الوحدة -->
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
+                <div class="flex items-center gap-2 text-xs font-bold text-cscs-600 dark:text-cscs-400 uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-bookmark"></i> الوحدة التعليمية الأولى
+                </div>
+                <h2 class="text-3xl font-extrabold text-cscs-800 dark:text-cscs-100">ماهية الذكاء العاطفي وأبعاده الرئيسة</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">استكشاف الجذور العلمية للمفهوم، وأبعاده الخمسة، والنماذج النظرية المفسرة له.</p>
+            </div>
+
+            <!-- المقدمة العلمية للوحدة الأولى -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border-r-4 border-cscs-600 border border-slate-200/80 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-8 h-8 rounded-lg bg-cscs-100 dark:bg-cscs-900/60 text-cscs-600 dark:text-cscs-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">مقدمة: التحول الجذري في مفهوم الذكاء</h3>
+                </div>
+                <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    <p>
+                        يُعد <strong>الذكاء العاطفي (Emotional Intelligence)</strong> من المفاهيم الحديثة التي أحدثت تحولًا في فهم طبيعة الذكاء الإنساني وسلوكه في بيئات العمل والحياة. فبينما ركزت النماذج التقليدية على <strong>الذكاء العقلي (IQ)</strong> بوصفه المؤشر الأوحد للنجاح، أظهرت الدراسات الحديثة أن الذكاء العاطفي هو المحدد الأكثر تأثيرًا في التفاعل الاجتماعي، واتخاذ القرار، والقيادة، والأداء المؤسسي.
+                    </p>
+                    <p>
+                        وقد برز المفهوم بصورة واسعة في تسعينيات القرن الماضي بجهود عالم النفس <strong>دانيال جولمان (Daniel Goleman)</strong> الذي أوضح من خلال أبحاثه الرائدة أن النجاح المهني لا يتوقف على القدرات المعرفية الصرفة وحدها، بل يعتمد بالدرجة الأولى على إدارة المشاعر وفهم الذات والآخرين.
+                    </p>
+                </div>
+
+                <!-- مقارنة بيانية تفاعلية بين IQ و EQ -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-slate-800 dark:text-slate-200">الذكاء العقلي (IQ)</span>
+                            <span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">النموذج التقليدي</span>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">يقيس القدرات المنطقية والحسابية والاستيعاب اللغوي. يحدد عتبة الدخول للمهنة لكنه لا يضمن النجاح القيادي بمفرده.</p>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-slate-400 h-full w-[20%]"></div>
+                        </div>
+                        <div class="text-[11px] text-slate-400 mt-1 text-left">مساهمة 20% تقريباً في النجاح القيادي</div>
+                    </div>
+
+                    <div class="bg-cscs-50/60 dark:bg-cscs-950/40 p-5 rounded-xl border border-cscs-300 dark:border-cscs-700">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-cscs-800 dark:text-cscs-200">الذكاء العاطفي (EQ)</span>
+                            <span class="text-xs bg-cscs-600 text-white px-2 py-0.5 rounded font-bold">المحدد الأقوى للتميز</span>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">يقيس الوعي بالانفعالات والقدرة على توجيهها وإدارة العلاقات والتعاطف. قابل للاكتساب والتطوير المستمر مدى الحياة.</p>
+                        <div class="w-full bg-cscs-200 dark:bg-cscs-900 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-cscs-600 h-full w-[80%]"></div>
+                        </div>
+                        <div class="text-[11px] text-cscs-600 dark:text-cscs-300 font-bold mt-1 text-left">مساهمة تصل إلى 80% في التميز القيادي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أولاً: تعريف الذكاء العاطفي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">
+                        1
+                    </span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">أولاً: تعريف الذكاء العاطفي</h3>
+                </div>
+
+                <!-- الاقتباس التعريفي الرئيسي -->
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-cscs-50 to-slate-50 dark:from-cscs-950/70 dark:to-slate-900 border-r-4 border-gold-500 mb-6 text-slate-800 dark:text-slate-200">
+                    <p class="text-base sm:text-lg font-medium leading-relaxed italic">
+                        "القدرة على التعرف على العواطف الذاتية وفهمها، والتحكم فيها، وفهم مشاعر الآخرين، والتفاعل معهم بفاعلية لتحقيق نتائج إيجابية في العلاقات الشخصية والمهنية."
+                    </p>
+                </div>
+
+                <!-- البعدان الرئيسيان -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <div class="w-12 h-12 rounded-xl bg-cscs-100 dark:bg-cscs-900/80 text-cscs-600 dark:text-cscs-300 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">الجانب الذاتي (Intrapersonal)</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            وهو وعي الفرد بعواطفه وإدارتها بما يعزز التوازن النفسي والسلوك الواعي، والقدرة على التحكم في الرغبات والدوافع الداخلية وضبط ردود الفعل تحت الضغط.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <div class="w-12 h-12 rounded-xl bg-gold-400/20 text-gold-600 dark:text-gold-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">الجانب الاجتماعي (Interpersonal)</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            وهو القدرة على إدراك انفعالات الآخرين وفهم دوافعهم واحتياجاتهم العميقة، والاستجابة لهم بطريقة بنّاءة تزيد من التعاون وتفض النزاعات.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- إشارة ماير وسالوفي -->
+                <div class="bg-cscs-900 text-white p-5 rounded-xl flex items-start gap-4">
+                    <i class="fa-solid fa-graduation-cap text-gold-400 text-2xl mt-1"></i>
+                    <div>
+                        <h5 class="font-bold text-gold-300 text-sm">تأطير ماير وسالوفي (Mayer & Salovey, 1997):</h5>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 leading-relaxed">
+                            يشير "ماير وسالوفي" إلى أن الذكاء العاطفي يمثل مجموعة من <strong>القدرات العقلية</strong> التي تتعلق بمعالجة المعلومات الانفعالية واستخدامها في التفكير والسلوك، مما يجعل منه نمطًا من الذكاء المتصل مباشرة بالوعي الإنساني والعلاقات.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ثانياً: مكونات الذكاء العاطفي الخمسة -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">
+                            2
+                        </span>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">ثانياً: مكونات الذكاء العاطفي (الأبعاد الخمسة)</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">وفق النموذج المعياري الأكثر شمولاً وتطبيقاً في بيئات العمل</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-semibold px-3 py-1 bg-cscs-100 dark:bg-cscs-950 text-cscs-700 dark:text-cscs-300 rounded-full border border-cscs-200 dark:border-cscs-800">
+                        انقر على أي مكون لتفصيل استراتيجيات تطبيقه
+                    </span>
+                </div>
+
+                <!-- بطاقات المكونات الخمسة التفاعلية -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- 1. الوعي بالذات -->
+                    <div onclick="showPillarDetails('selfAwareness')" class="cursor-pointer group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/40 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 hover:border-cscs-500 transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cscs-600 text-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-eye"></i>
+                            </span>
+                            <span class="text-xs font-bold text-cscs-600 dark:text-cscs-300">الأساس الجوهري</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">1. الوعي بالذات (Self-Awareness)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            يمثل الأساس الذي تبنى عليه بقية المهارات، ويتمثل في إدراك الفرد لمشاعره ودوافعه وتأثيرها على قراراته وأفعاله. يدرك نقاط قوته وضعفه ويتعامل دون اندفاع.
+                        </p>
+                        <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            <span>عرض المهارات المرتبطة</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        </span>
+                    </div>
+
+                    <!-- 2. إدارة الذات -->
+                    <div onclick="showPillarDetails('selfRegulation')" class="cursor-pointer group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/40 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 hover:border-cscs-500 transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cscs-700 text-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-sliders"></i>
+                            </span>
+                            <span class="text-xs font-bold text-cscs-600 dark:text-cscs-300">التحكم وضبط النفس</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">2. إدارة الذات (Self-Regulation)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            القدرة على ضبط الانفعالات والتحكم في ردود الفعل العاطفية بما يتناسب مع الموقف. وتشمل مهارات مثل الصبر، المرونة، ضبط الغضب، وتجنب الاندفاع.
+                        </p>
+                        <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            <span>عرض المهارات المرتبطة</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        </span>
+                    </div>
+
+                    <!-- 3. التحفيز الذاتي -->
+                    <div onclick="showPillarDetails('selfMotivation')" class="cursor-pointer group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/40 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 hover:border-cscs-500 transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-gold-500 text-slate-950 flex items-center justify-center text-xl shadow-md font-bold">
+                                <i class="fa-solid fa-fire"></i>
+                            </span>
+                            <span class="text-xs font-bold text-gold-600 dark:text-gold-400">القوة الداخلية</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">3. التحفيز الذاتي (Self-Motivation)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            توجيه المشاعر نحو تحقيق الأهداف بعزيمة وإصرار، حتى في مواجهة العقبات. لا ينتظرون الدوافع الخارجية بل يستمدون قوتهم من شغفهم الداخلي.
+                        </p>
+                        <span class="text-xs font-bold text-gold-600 dark:text-gold-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            <span>عرض المهارات المرتبطة</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        </span>
+                    </div>
+
+                    <!-- 4. التعاطف -->
+                    <div onclick="showPillarDetails('empathy')" class="cursor-pointer group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/40 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 hover:border-cscs-500 transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cscs-500 text-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </span>
+                            <span class="text-xs font-bold text-cscs-600 dark:text-cscs-300">جوهر القيادة</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">4. التعاطف (Empathy)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            فهم مشاعر الآخرين والتفاعل معها بإيجابية. هو جوهر العلاقات الإنسانية الناجحة، وهو الفارق الحقيقي الذي يميز القائد المؤثر عن المدير الإداري.
+                        </p>
+                        <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            <span>عرض المهارات المرتبطة</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        </span>
+                    </div>
+
+                    <!-- 5. المهارات الاجتماعية -->
+                    <div onclick="showPillarDetails('socialSkills')" class="cursor-pointer group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/40 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 hover:border-cscs-500 transition-all hover:-translate-y-1 hover:shadow-lg sm:col-span-2 lg:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cscs-800 text-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </span>
+                            <span class="text-xs font-bold text-cscs-600 dark:text-cscs-300">التأثير والاتصال</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">5. المهارات الاجتماعية (Social Skills)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            القدرة على التواصل الفعال، بناء الثقة العميقة، إدارة النزاعات بحكمة، والتأثير في الآخرين وتوجيههم نحو تحقيق الأهداف المؤسسية المشتركة.
+                        </p>
+                        <span class="text-xs font-bold text-cscs-600 dark:text-cscs-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            <span>عرض المهارات المرتبطة</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- مساحة تفصيل المكون المختار -->
+                <div id="pillarDetailBox" class="mt-6 p-6 rounded-2xl bg-cscs-50 dark:bg-slate-800 border border-cscs-200 dark:border-slate-700 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <h5 id="pillarDetailTitle" class="text-base font-bold text-cscs-800 dark:text-cscs-200">
+                            <i class="fa-solid fa-circle-check text-cscs-600 ml-1"></i> تطبيق عملي لمكونات الذكاء العاطفي
+                        </h5>
+                        <span class="text-xs text-slate-500">نصيحة تطبيقية</span>
+                    </div>
+                    <p id="pillarDetailContent" class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                        تكامل هذه الأبعاد الخمسة يبدأ دائماً من الأساس (الوعي بالذات)؛ فلا يمكن إدارة ما لا ندركه، ولا يمكن التعاطف مع الآخرين دون فهم ذواتنا أولاً.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ثالثاً: النماذج النظرية للذكاء العاطفي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">
+                        3
+                    </span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">ثالثاً: النماذج النظرية للذكاء العاطفي</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                    تعددت النماذج العلمية التي فسرت الذكاء العاطفي وطرق قياسه، ويمكن تصنيفها إلى ثلاثة نماذج رئيسية شكلت المرجعيات الأساسية للدراسات الإدارية:
+                </p>
+
+                <!-- جدول المقارنة التفاعلي الشامل -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-cscs-50 dark:bg-cscs-950/60 text-cscs-800 dark:text-cscs-200 text-xs sm:text-sm font-bold border-b border-cscs-200 dark:border-cscs-800">
+                                <th class="p-4 rounded-tr-xl">النموذج النظري</th>
+                                <th class="p-4">المنظور الأساسي</th>
+                                <th class="p-4">المهارات والأبعاد المحورية</th>
+                                <th class="p-4 rounded-tl-xl">التطبيق الأبرز في بيئة العمل</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-xs sm:text-sm divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                                <td class="p-4 font-bold text-cscs-700 dark:text-cscs-300">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-brain text-cscs-600"></i>
+                                        <span>نموذج ماير وسالوفي <br><span class="text-[11px] font-normal text-slate-400">(Mayer & Salovey Model)</span></span>
+                                    </div>
+                                </td>
+                                <td class="p-4">يركز على الذكاء العاطفي بوصفه <strong>قدرة معرفية نقية (Ability Model)</strong> متصلة بمعالجة المعلومات.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc list-inside space-y-1 text-xs">
+                                        <li>إدراك الانفعالات بدقة</li>
+                                        <li>استخدام المشاعر لتيسير التفكير</li>
+                                        <li>فهم وتحليل الانفعالات المعقدة</li>
+                                        <li>إدارة وتوجيه الانفعالات</li>
+                                    </ul>
+                                </td>
+                                <td class="p-4 text-xs font-semibold">اتخاذ القرارات التفكيرية، حل المشكلات المعقدة تحت الضغط.</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors bg-cscs-50/30 dark:bg-cscs-950/20">
+                                <td class="p-4 font-bold text-cscs-700 dark:text-cscs-300">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-briefcase text-gold-500"></i>
+                                        <span>نموذج جولمان <br><span class="text-[11px] font-normal text-slate-400">(Goleman Model)</span></span>
+                                    </div>
+                                </td>
+                                <td class="p-4"><strong>الأكثر شيوعاً في بيئات العمل</strong>؛ يدمج بين العواطف والسلوكيات الإدارية والقيادية.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc list-inside space-y-1 text-xs">
+                                        <li>الوعي الذاتي وإدارة الذات</li>
+                                        <li>التحفيز الذاتي الداخلي</li>
+                                        <li>التعاطف الوجداني</li>
+                                        <li>المهارات الاجتماعية والتأثير</li>
+                                    </ul>
+                                </td>
+                                <td class="p-4 text-xs font-semibold text-cscs-600 dark:text-cscs-400">القيادة، إدارة فرق العمل، التوجيه التنفيذي، ثقافة المؤسسة.</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                                <td class="p-4 font-bold text-cscs-700 dark:text-cscs-300">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-heart-pulse text-cscs-500"></i>
+                                        <span>نموذج بار-أون <br><span class="text-[11px] font-normal text-slate-400">(Bar-On Model)</span></span>
+                                    </div>
+                                </td>
+                                <td class="p-4">يعتبر الذكاء العاطفي نموذجاً مختلطاً من <strong>السمات الشخصية والمهارات الاجتماعية</strong>.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc list-inside space-y-1 text-xs">
+                                        <li>الكفاءة الشخصية والاجتماعية</li>
+                                        <li>القدرة على التكيف والمرونة</li>
+                                        <li>إدارة الضغوط والمزاج العام</li>
+                                        <li>تحقيق الرفاهية وجودة الحياة</li>
+                                    </ul>
+                                </td>
+                                <td class="p-4 text-xs font-semibold">الصحة النفسية، المرونة ضد الاحتراق الوظيفي، التوافق المهني.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- رابعاً: أهمية الذكاء العاطفي في الحياة والعمل -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">
+                        4
+                    </span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">رابعاً: أهمية الذكاء العاطفي في الحياة والعمل</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                    تكمن أهمية الذكاء العاطفي في كونه عاملاً رئيساً في تحقيق التوازن بين الأداء المهني الرفيع والرفاه الإنساني، وتتجلى مظاهره الجوهرية في:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <i class="fa-solid fa-handshake text-cscs-600 dark:text-cscs-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">تحسين جودة العلاقات</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">بناء روابط مهنية واجتماعية متينة قائمة على الاحترام والتفاهم غير المحدود.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <i class="fa-solid fa-scale-balanced text-cscs-600 dark:text-cscs-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">القرارات الحكيمة تحت الضغط</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">فصل المشاعر المشوشة عن الحكم العقلاني لتفادي القرارات الانفعالية الهدامة.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <i class="fa-solid fa-shield-halved text-cscs-600 dark:text-cscs-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">تخفيف التوتر والاحتراق</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">حماية الفرد من الإنهاك النفسي من خلال المرونة وإعادة الشحن الإيجابي.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <i class="fa-solid fa-chart-line text-cscs-600 dark:text-cscs-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">رفع كفاءة القيادة والتحفيز</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">إلهام الفرق وتفجير طاقاتهم الكامنة عبر التعاطف الحقيقي والتقدير المستمر.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-start gap-3 sm:col-span-2">
+                        <i class="fa-solid fa-sparkles text-gold-500 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">القيادة التحويلية والتمكين الإبداعي</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">الأفراد ذوو الذكاء العاطفي العالي يظهرون قدرة استثنائية على التواصل وإدارة النزاعات والابتكار المشترك مما يجعلهم محركاً أساسياً للمؤسسات المعاصرة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نشاط تطبيقي تفاعلي للوحدة الأولى -->
+            <div class="bg-gradient-to-r from-cscs-900 via-cscs-800 to-cscs-950 text-white rounded-2xl p-6 sm:p-8 shadow-md">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-8 h-8 rounded-lg bg-gold-500 text-slate-950 font-black flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-flask"></i>
+                    </span>
+                    <h4 class="text-lg font-bold text-gold-300">تمرين الفهم والاستيعاب (الوحدة 1)</h4>
+                </div>
+                <p class="text-sm text-slate-200 mb-6 leading-relaxed">
+                    <strong>سيناريو تطبيقي:</strong> تلقى مدير تنفيذي في جمعية تعاونية تقريراً حاداً ومفاجئاً من أحد الشركاء ينتقد تأخر مشروع مشترك بلهجة هجومية. شعر المدير بالغضب العارم. وفق بُعد <strong>(إدارة الذات)</strong>، ما هو التصرف الأكثر نضجاً عاطفياً؟
+                </p>
+
+                <div class="space-y-3" id="q1Options">
+                    <button onclick="checkActivityAnswer(1, 1)" class="w-full text-right p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm transition-all flex items-center justify-between">
+                        <span>أ) الرد فوراً بإيميل دفاعي صارم وتفنيد كل نقطة لتأكيد مكانة الجمعية.</span>
+                        <i class="fa-regular fa-circle"></i>
+                    </button>
+                    <button onclick="checkActivityAnswer(1, 2)" class="w-full text-right p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm transition-all flex items-center justify-between">
+                        <span>ب) التوقف لحظياً، أخذ أنفاس عميقة لتهدئة استثارة الجهاز العصبي، وتأجيل الرد المكتوب لساعتين حتى استعادة الهدوء الموضوعي.</span>
+                        <i class="fa-regular fa-circle"></i>
+                    </button>
+                    <button onclick="checkActivityAnswer(1, 3)" class="w-full text-right p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm transition-all flex items-center justify-between">
+                        <span>ج) تجاهل الرسالة تماماً وعدم التواصل مع الشريك مستقبلاً.</span>
+                        <i class="fa-regular fa-circle"></i>
+                    </button>
+                </div>
+                <div id="q1Feedback" class="hidden mt-4 p-4 rounded-xl text-xs sm:text-sm"></div>
+            </div>
+
+            <!-- أزرار التنقل السلس -->
+            <div class="flex items-center justify-between pt-6">
+                <button onclick="navigateToTab('overview')" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>نظرة عامة</span>
+                </button>
+                <button onclick="navigateToTab('module2')" class="px-6 py-2.5 rounded-xl bg-cscs-600 hover:bg-cscs-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                    <span>الانتقال إلى الوحدة الثانية</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- الوحدة الثانية: الذكاء العاطفي في بيئات العمل والقيادة -->
+        <!-- ============================================== -->
+        <section id="tab-module2" class="tab-content hidden space-y-10">
+            <!-- ترويسة الوحدة -->
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
+                <div class="flex items-center gap-2 text-xs font-bold text-cscs-600 dark:text-cscs-400 uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-bookmark"></i> الوحدة التعليمية الثانية
+                </div>
+                <h2 class="text-3xl font-extrabold text-cscs-800 dark:text-cscs-100">الذكاء العاطفي في بيئات العمل والقيادة</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">تحول الذكاء العاطفي إلى مهارة قيادية استراتيجية تصنع الثقافة التنظيمية وتعزز الإنتاجية.</p>
+            </div>
+
+            <!-- مقدمة الوحدة الثانية -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border-r-4 border-cscs-600 border border-slate-200/80 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-8 h-8 rounded-lg bg-cscs-100 dark:bg-cscs-900/60 text-cscs-600 dark:text-cscs-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-building-user"></i>
+                    </span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">مقدمة: بيئة عمل القرن الحادي والعشرين</h3>
+                </div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    تُظهر الأدبيات الحديثة أن بيئة العمل في القرن الحادي والعشرين لم تعد تعتمد على الكفاءة التقنية فقط، بل أصبحت تقوم على القدرة على <strong>فهم الذات والآخرين، وبناء الثقة، وتحفيز الفرق بذكاء عاطفي</strong>. لقد تحول الذكاء العاطفي إلى مهارة قيادية أساسية تميز القادة الناجحين في المؤسسات المتقدمة، بوصفه أداة استراتيجية لتعزيز الثقافة التنظيمية الإيجابية والإنتاجية المستدامة.
+                </p>
+            </div>
+
+            <!-- أولاً: دور الذكاء العاطفي في القيادة -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">1</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">أولاً: دور الذكاء العاطفي في القيادة</h3>
+                </div>
+
+                <div class="p-4 rounded-xl bg-cscs-50 dark:bg-cscs-950/60 border border-cscs-200 dark:border-cscs-800 text-slate-700 dark:text-slate-300 mb-6 text-sm">
+                    <strong>الركيزة القيادية:</strong> القائد العاطفي لا يكتفي بإدارة المهام والمؤشرات الرقمية، بل يدير المشاعر والعلاقات ضمن فريق العمل. وتشير الدراسات إلى أن القادة ذوي الذكاء العاطفي العالي يحققون مستويات أعلى من الالتزام والتحفيز لدى مرؤوسيهم من خلال:
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cscs-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">إلهام الفريق برؤية مشتركة</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">ربط الأهداف اليومية بقيمة إنسانية ومعنى وظيفي يحرك الشغف.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cscs-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">فهم احتياجات الأفراد وإدارتها بتعاطف</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">مراعاة الظروف الشخصية وتقديم الدعم الإنساني دون الإخلال بمتطلبات العمل.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cscs-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">حل النزاعات بطرق بنّاءة</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">تحويل الخلافات إلى فرص للتكامل والابتكار بدلاً من الصدام الهدام.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cscs-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">تعزيز الانتماء المؤسسي</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">غرس الشعور بالأمان النفسي والتقدير العادل لكل مساهمة في المنظمة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ميزان الحزم والمرونة -->
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-cscs-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 border border-cscs-200 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-yin-yang text-cscs-600"></i> معادلة التوازن القيادي
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        يمكّن الذكاء العاطفي القائد من التعامل مع التنوع الثقافي والانفعالي في فرق العمل، وتكييف أسلوبه بما يتناسب مع الموقف؛ فالقائد الذكي عاطفياً قادر على إحداث <strong>التوازن الدقيق بين الحزم والمرونة، وبين الانضباط المؤسسي والإنسانية الصادقة</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ثانياً: الذكاء العاطفي والأداء المؤسسي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">2</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">ثانياً: الذكاء العاطفي والأداء المؤسسي</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                    الذكاء العاطفي لا يؤثر على الأفراد فقط، بل على المنظومة المؤسسية بكاملها. فالمؤسسات التي تتبنى برامج تدريبية لتنمية الذكاء العاطفي لدى موظفيها تُحقق نتائج ملموسة:
+                </p>
+
+                <!-- بطاقات العوائد المؤسسية -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center">
+                        <div class="text-emerald-600 dark:text-emerald-400 text-2xl font-black mb-1"><i class="fa-solid fa-arrow-down-wide-short"></i></div>
+                        <div class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">انخفاض الدوران الوظيفي</div>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">الاحتفاظ بالكفاءات وتوفير تكاليف الاستبدال</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-cscs-50 dark:bg-cscs-950/40 border border-cscs-200 dark:border-cscs-800 text-center">
+                        <div class="text-cscs-600 dark:text-cscs-400 text-2xl font-black mb-1"><i class="fa-solid fa-people-carry-box"></i></div>
+                        <div class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">تحسن بيئة العمل</div>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">تعزيز الثقة وتناغم العلاقات بين الزملاء</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-center">
+                        <div class="text-amber-600 dark:text-amber-400 text-2xl font-black mb-1"><i class="fa-solid fa-heart-circle-check"></i></div>
+                        <div class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">زيادة الولاء التنظيمي</div>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">ارتباط وجداني وانتماء عميق للمؤسسة</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 text-center">
+                        <div class="text-blue-600 dark:text-blue-400 text-2xl font-black mb-1"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">ارتفاع الإنتاجية والابتكار</div>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">تحرير الطاقات الذهنية للإبداع المشترك</p>
+                    </div>
+                </div>
+
+                <!-- نماذج الشركات العالمية -->
+                <div class="p-5 rounded-2xl bg-slate-900 text-white">
+                    <div class="flex items-center gap-2 mb-3 text-gold-400 text-sm font-bold">
+                        <i class="fa-solid fa-globe"></i> تجارب الشركات العالمية الرائدة (Google & Microsoft)
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        تبنت كبرى المؤسسات العالمية مثل <strong>Google</strong> (عبر برنامج <em>Search Inside Yourself</em> الشهير) و <strong>Microsoft</strong> برامج متقدمة لتنمية الذكاء العاطفي لدى قادتها وفرقها، إدراكاً حاسماً بأن الأداء المستدام لا يُبنى على المهارات الفنية التقنية وحدها، بل على الاستقرار العاطفي، والتفاعل الإنساني البنّاء، وإشاعة ثقافة الأمان النفسي داخل فرق العمل.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ثالثاً: الذكاء العاطفي في إدارة التغيير التنظيمي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">3</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">ثالثاً: الذكاء العاطفي في إدارة التغيير التنظيمي</h3>
+                </div>
+
+                <div class="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    <p>
+                        من أبرز تحديات المنظمات الحديثة والجمعيات التعاونية اليوم هو <strong>إدارة التغيير والتحول المؤسسي والرقمي</strong>، وهو ميدان تتجلى فيه أهمية الذكاء العاطفي بوضوح. فالموظفون غالباً ما يقاومون التغيير ليس عناداً، بل بسبب <strong>الخوف من المجهول أو فقدان الأمان المهني</strong> والشعور بتهديد كفاءتهم السابقة.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-4">دور القائد الذكي عاطفياً في قيادة التحول:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-ear-listen text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-xs text-slate-900 dark:text-white">فهم دوافع المقاومة ومعالجتها:</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">الاستماع لمخاوف الموظفين وتفهمها بدلاً من قمعها أو تجاهلها.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-bullhorn text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-xs text-slate-900 dark:text-white">التواصل الشفاف وإشراك الفريق:</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">شرح أسباب التغيير وإشراك المتأثرين في صياغة الحلول.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-shield-heart text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-xs text-slate-900 dark:text-white">دعم الحالة النفسية خلال مرحلة الانتقال:</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">توفير الدعم المعنوي والتدريب المطلوب لتبديد قلق عدم الكفاءة.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-compass-drafting text-cscs-600 dark:text-cscs-400 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-xs text-slate-900 dark:text-white">تعزيز المرونة والانفتاح على التجديد:</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">ترسيخ ثقافة التعلم المستمر واعتبار الأخطاء فرصاً للتطوير.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رابعاً: الذكاء العاطفي وفن التواصل الإداري -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">4</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">رابعاً: الذكاء العاطفي وفن التواصل الإداري</h3>
+                </div>
+
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                    يُعد التواصل الفعّال أحد أعمدة الذكاء العاطفي، إذ يجمع بين التعبير اللفظي المتقن والوعي الحساس بالمشاعر غير المنطوقة. ومن خلال الذكاء العاطفي، يصبح القائد قادراً على:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                        <i class="fa-solid fa-person-dots-from-line text-cscs-600 text-xl mb-2"></i>
+                        <h5 class="font-bold text-xs text-slate-900 dark:text-white mb-1">قراءة لغة الجسد والإشارات</h5>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">فهم التلميحات ونبرة الصوت وملامح الوجه التي تكشف ما وراء الكلمات.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                        <i class="fa-solid fa-comment-medical text-cscs-600 text-xl mb-2"></i>
+                        <h5 class="font-bold text-xs text-slate-900 dark:text-white mb-1">إيصال الرسائل الحساسة بإيجابية</h5>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">توجيه النقد التوجيهي بطريقة تحفز التعديل دون إهانة الكرامة.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                        <i class="fa-solid fa-handshake-angle text-cscs-600 text-xl mb-2"></i>
+                        <h5 class="font-bold text-xs text-slate-900 dark:text-white mb-1">خلق مناخ الثقة والاحترام</h5>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">تشجيع ثقافة الحوار الصريح وإبداء الرأي بأمان وبدون تردد.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                        <i class="fa-solid fa-headphones text-cscs-600 text-xl mb-2"></i>
+                        <h5 class="font-bold text-xs text-slate-900 dark:text-white mb-1">الاستماع النشط غير المشروط</h5>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">الإنصات لفهم مشاعر واحتياجات الطرف الآخر دون إطلاق أحكام مسبقة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خامساً: تطوير الذكاء العاطفي في بيئة العمل -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">5</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">خامساً: تطوير الذكاء العاطفي في بيئة العمل</h3>
+                </div>
+
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                    تطوير الذكاء العاطفي عملية تراكمية تقوم على الممارسة الواعية المستمرة وتتضمن أربع ركائز تشغيلية:
+                </p>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-cscs-50/70 dark:bg-cscs-950/40 border border-cscs-200 dark:border-cscs-800 text-xs sm:text-sm">
+                        <i class="fa-solid fa-chalkboard-user text-cscs-600"></i>
+                        <span><strong>برامج التدريب المستمرة:</strong> ورش عمل محددة للوعي بالذات، والتعاطف، والقيادة الوجدانية.</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-cscs-50/70 dark:bg-cscs-950/40 border border-cscs-200 dark:border-cscs-800 text-xs sm:text-sm">
+                        <i class="fa-solid fa-comments text-cscs-600"></i>
+                        <span><strong>جلسات التغذية الراجعة (Feedback) البنّاءة:</strong> توفير مساحات آمنة لتبادل الملاحظات السلوكية 360 درجة.</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-cscs-50/70 dark:bg-cscs-950/40 border border-cscs-200 dark:border-cscs-800 text-xs sm:text-sm">
+                        <i class="fa-solid fa-spa text-cscs-600"></i>
+                        <span><strong>تقنيات إدارة الضغوط والتأمل الذهني (Mindfulness):</strong> دمج تمارين التركيز والتهدئة قبل الاجتماعات المصيرية.</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-cscs-50/70 dark:bg-cscs-950/40 border border-cscs-200 dark:border-cscs-800 text-xs sm:text-sm">
+                        <i class="fa-solid fa-users-viewfinder text-cscs-600"></i>
+                        <span><strong>بناء ثقافة مؤسسية داعمة للشفافية:</strong> سياسات عمل تشجع الاعتراف بالصعوبات والتواصل الإنساني الراقي.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- دراسة حالة تفاعلية للمدير في بيئة العمل -->
+            <div class="bg-gradient-to-r from-cscs-900 via-cscs-800 to-cscs-950 text-white rounded-2xl p-6 sm:p-8 shadow-md">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-8 h-8 rounded-lg bg-gold-500 text-slate-950 font-black flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </span>
+                    <h4 class="text-lg font-bold text-gold-300">دراسة حالة تطبيقية: قيادة التغيير في جمعية تعاونية</h4>
+                </div>
+                <p class="text-sm text-slate-200 mb-6 leading-relaxed">
+                    <strong>الحالة:</strong> أعلنت إدارة الجمعية عن تدشين نظام محاسبي رقمي سحابي متطور بدلاً من الدفاتر اليدوية. عبّر الموظفون القدامى عن استيائهم الشديد وبدأت الشائعات بأن النظام يهدف لتقليص الوظائف. بصفتك رئيساً تنفيذياً ذكياً عاطفياً، كيف تدير الموقف بنجاح؟
+                </p>
+
+                <div class="space-y-3" id="caseStudyOptions">
+                    <button onclick="checkCaseStudy(1)" class="w-full text-right p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm transition-all flex items-center justify-between">
+                        <span>أ) إصدار تعميم إداري حازم بأن استخدام النظام إلزامي فوراً وكل من يمتنع سيتعرض للخصم المالي.</span>
+                        <i class="fa-regular fa-circle"></i>
+                    </button>
+                    <button onclick="checkCaseStudy(2)" class="w-full text-right p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm transition-all flex items-center justify-between">
+                        <span>ب) عقد لقاء مفتوح غير رسمي، إظهار التعاطف مع مخاوفهم، وتوضيح أن النظام لتسهيل عملهم مع ضمان استقرارهم وتوفير تدريب مخصص لهم.</span>
+                        <i class="fa-regular fa-circle"></i>
+                    </button>
+                    <button onclick="checkCaseStudy(3)" class="w-full text-right p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm transition-all flex items-center justify-between">
+                        <span>ج) إلغاء التحول الرقمي بالكامل لتجنب إغضاب الموظفين والحفاظ على الهدوء الحالي.</span>
+                        <i class="fa-regular fa-circle"></i>
+                    </button>
+                </div>
+                <div id="caseFeedback" class="hidden mt-4 p-4 rounded-xl text-xs sm:text-sm"></div>
+            </div>
+
+            <!-- أزرار التنقل السلس -->
+            <div class="flex items-center justify-between pt-6">
+                <button onclick="navigateToTab('module1')" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>الوحدة السابقة</span>
+                </button>
+                <button onclick="navigateToTab('module3')" class="px-6 py-2.5 rounded-xl bg-cscs-600 hover:bg-cscs-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                    <span>الانتقال إلى الوحدة الثالثة</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- الوحدة الثالثة: تنمية الذكاء العاطفي وتطبيقاته العملية -->
+        <!-- ============================================== -->
+        <section id="tab-module3" class="tab-content hidden space-y-10">
+            <!-- ترويسة الوحدة -->
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
+                <div class="flex items-center gap-2 text-xs font-bold text-cscs-600 dark:text-cscs-400 uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-bookmark"></i> الوحدة التعليمية الثالثة
+                </div>
+                <h2 class="text-3xl font-extrabold text-cscs-800 dark:text-cscs-100">تنمية الذكاء العاطفي وتطبيقاته العملية</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">استراتيجيات عملية، مقاييس علمية، ومكانة الذكاء العاطفي الحاسمة في عصر الذكاء الاصطناعي.</p>
+            </div>
+
+            <!-- مقدمة الوحدة الثالثة -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border-r-4 border-cscs-600 border border-slate-200/80 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-8 h-8 rounded-lg bg-cscs-100 dark:bg-cscs-900/60 text-cscs-600 dark:text-cscs-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-seedling"></i>
+                    </span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">مقدمة: قابلية الذكاء العاطفي للتعلم والارتقاء</h3>
+                </div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    إن تنمية الذكاء العاطفي ليست حكراً على فئة معينة، بل هي <strong>قدرة إنسانية قابلة للتعلم والتطوير والممارسة المستمرة</strong>. وقد أظهرت أبحاث علم الأعصاب أن التدريب المستمر على المهارات العاطفية يعيد تشكيل المسارات العصبية، مما يؤدي إلى تغييرات ملموسة ودائمة في التفكير والسلوك والنتائج العملية.
+                </p>
+            </div>
+
+            <!-- أولاً: استراتيجيات تنمية الذكاء العاطفي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">1</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">أولاً: استراتيجيات تنمية الذكاء العاطفي</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- التأمل الذاتي -->
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-cscs-600 text-white flex items-center justify-center text-sm font-bold"><i class="fa-solid fa-book"></i></span>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">التأمل الذاتي ودفتر اليوميات</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            يتيح للفرد فهم أنماط مشاعره وسلوكياته. ويمكن استخدام دفتر يومي لتسجيل المواقف الشائكة وردود الأفعال الصادرة بهدف التعرف الدقيق على المثيرات الانفعالية الداخلية والخارجية.
+                        </p>
+                    </div>
+
+                    <!-- التحكم الانفعالي وإعادة التقييم -->
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-cscs-700 text-white flex items-center justify-center text-sm font-bold"><i class="fa-solid fa-arrows-spin"></i></span>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">التحكم الانفعالي وإعادة التقييم المعرفي</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            يعتمد على تقنيات التنفس العميق، واستراتيجية <strong>إعادة التقييم المعرفي (Cognitive Reappraisal)</strong> التي تساعد على تغيير زاوية تفسير المواقف المثيرة للغضب أو الإحباط وتحويلها إلى فرص.
+                        </p>
+                    </div>
+
+                    <!-- التعاطف الموجه -->
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-gold-500 text-slate-950 flex items-center justify-center text-sm font-bold"><i class="fa-solid fa-ear-listen"></i></span>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">التعاطف الموجّه والاستماع الفعّال</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            ممارسة الاستماع العميق للآخرين، وتجريد الذهن من الأحكام المسبقة، وتبني منظورهم الشعوري لفهم ما يمرون به، مما يعزز الثقة المتبادلة والانسجام الجمعي.
+                        </p>
+                    </div>
+
+                    <!-- مهارات التواصل والمساءلة -->
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-cscs-800 text-white flex items-center justify-center text-sm font-bold"><i class="fa-solid fa-list-check"></i></span>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">بناء مهارات التواصل والمساءلة الذاتية</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            التعبير عن المشاعر بوضوح واحترام، وتناغم لغة الجسد مع النبرة الصوتية، ومراقبة التقدم التدريجي عبر التقييم الدوري والمساءلة الذاتية الصادقة.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- تمرين تفاعلي لتطبيق التنفس التكتيكي المهدئ (Box Breathing) -->
+                <div class="p-6 rounded-2xl bg-cscs-900 text-white text-center relative overflow-hidden">
+                    <h4 class="text-base font-bold text-gold-300 mb-2">
+                        <i class="fa-solid fa-wind ml-1"></i> أداة تفاعلية: تمرين التنفس التكتيكي (Box Breathing)
+                    </h4>
+                    <p class="text-xs text-slate-300 max-w-xl mx-auto mb-6">
+                        تُستخدم هذه التقنية في البيئات القيادية عالية الضغط لخفض هرمون الكورتيزول وإعادة التوازن لنظام التفكير في 4 خطوات متساوية (4 ثوانٍ لكل مرحلة).
+                    </p>
+
+                    <!-- الدائرة المتحركة لضبط النفس -->
+                    <div class="flex flex-col items-center justify-center py-4">
+                        <div class="relative w-36 h-36 flex items-center justify-center">
+                            <div class="breathing-circle w-28 h-28 rounded-full border-4 border-cscs-400 flex items-center justify-center bg-cscs-800/80 shadow-2xl">
+                                <span id="breathingText" class="text-xs sm:text-sm font-bold text-white">تنفس بهدوء</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6 text-xs text-slate-300 font-mono">
+                            <span>1. شهيق (4ث)</span> &bull;
+                            <span>2. حبس النفس (4ث)</span> &bull;
+                            <span>3. زفير (4ث)</span> &bull;
+                            <span>4. استقرار (4ث)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ثانياً: تطبيقات الذكاء العاطفي في الحياة اليومية -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">2</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">ثانياً: تطبيقات الذكاء العاطفي في الحياة اليومية</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                        <div class="w-8 h-8 rounded-lg bg-pink-100 text-pink-700 dark:bg-pink-950 dark:text-pink-300 flex items-center justify-center text-sm font-bold mb-3">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">في العلاقات الأسرية</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">تحسين التفاهم، وإدارة الخلافات الزوجية بهدوء، وتعزيز التواصل الإيجابي مع الأبناء.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                        <div class="w-8 h-8 rounded-lg bg-cscs-100 text-cscs-700 dark:bg-cscs-950 dark:text-cscs-300 flex items-center justify-center text-sm font-bold mb-3">
+                            <i class="fa-solid fa-building-wheat"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">في بيئة العمل</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">بناء فرق متماسكة، وتخفيف حدة النزاعات الهدامة، وتحسين رضا العملاء والشركاء.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                        <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300 flex items-center justify-center text-sm font-bold mb-3">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">في قطاع التعليم</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">دعم المتعلمين في التحكم بانفعالاتهم، وتنمية التفكير المرن، وبث روح التعاون المدرسي.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                        <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300 flex items-center justify-center text-sm font-bold mb-3">
+                            <i class="fa-solid fa-chess-queen"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">في موقع القيادة</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">إلهام الآخرين نحو التميز، وتحقيق الموازنة الدقيقة بين هيبة الحزم ودفء الرحمة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ثالثاً: الذكاء العاطفي والصحة النفسية -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">3</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">ثالثاً: الذكاء العاطفي والصحة النفسية</h3>
+                </div>
+                <div class="p-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-cscs-500/10 to-transparent border border-emerald-500/20">
+                    <p class="text-sm sm:text-base leading-relaxed text-slate-700 dark:text-slate-300">
+                        أثبتت الدراسات الطبية والنفسية أن الأفراد ذوي الذكاء العاطفي المرتفع يتمتعون <strong>بمستويات أعلى بكثير من الرفاه النفسي والرضا عن الحياة</strong>، وهم أقل عرضة للاكتئاب أو القلق المزمن؛ لأنهم قادرون على تنظيم مشاعرهم ومواجهة الصدمات والضغوط بمرونة فائقة. كما يسهم الذكاء العاطفي في ترسيخ الثقة بالذات وتخفيف التوتر العصبي الناتج عن ضغوط العمل والمطالب الحياتية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- رابعاً: تقييم ومقاييس الذكاء العاطفي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-9 h-9 rounded-xl bg-cscs-600 text-white flex items-center justify-center font-bold text-base">4</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">رابعاً: تقييم ومقاييس الذكاء العاطفي المعتمدة</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                    توجد عدة أدوات ومقاييس سيكومترية معتمدة عالمياً لقياس الذكاء العاطفي، وتستخدم على نطاق واسع في التوظيف القيادي وتنمية المواهب:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border-t-4 border-cscs-600 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-2">مقياس بار-أون <br><span class="text-xs font-normal text-slate-400">(Bar-On EQ-i)</span></h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            يقيس الكفاءات العاطفية والاجتماعية التي تساهم في قدرة الفرد على مواجهة متطلبات وضغوط البيئة المحيطة.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border-t-4 border-gold-500 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-2">مقياس ماير وسالوفي <br><span class="text-xs font-normal text-slate-400">(MSCEIT)</span></h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            اختبار قائم على الأداء الفعلي (Ability Test) يقيس مدى كفاءة الشخص في حل المعضلات العاطفية وليس مجرد تقريره الذاتي.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border-t-4 border-cscs-500 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-2">مقاييس جولمان التنظيمية <br><span class="text-xs font-normal text-slate-400">(Goleman's EI Framework)</span></h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            تُستخدم في التوظيف وتطوير الكفاءات القيادية المؤسسية، لتحديد نقاط القوة الميدانية وفرص التحسين العاطفي.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خامساً: الذكاء العاطفي في عصر الذكاء الاصطناعي (AI) -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-cscs-950 via-cscs-900 to-slate-900 text-white p-6 sm:p-8 border border-cscs-600 shadow-xl">
+                <div class="absolute left-0 top-0 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-gold-400 text-slate-950 flex items-center justify-center text-lg font-black">
+                            <i class="fa-solid fa-robot"></i>
+                        </span>
+                        <div>
+                            <span class="text-xs font-bold text-gold-400">البُعد الاستراتيجي المستقبلي</span>
+                            <h3 class="text-xl font-bold text-white">خامساً: الذكاء العاطفي في عصر الذكاء الاصطناعي</h3>
+                        </div>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed mb-6 font-light">
+                        مع صعود التحول الرقمي وخوارزميات الذكاء الاصطناعي، أصبحت المهارات العاطفية ذات قيمة استراتيجية لا تُضاهى، لأنها <strong>تمثل ما لا يمكن للأتمتة والآلات استبداله إطلاقاً</strong>. فبينما تتولى الأنظمة الرقمية المهام الحسابية وتحليل البيانات الضخمة، يبقى الإنسان فريداً بقدرته على الإبداع، والتعاطف الصادق، والاتصال الإنساني، واتخاذ القرارات الأخلاقية المعقدة.
+                    </p>
+
+                    <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-center sm:text-right flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-gold-300 font-extrabold text-base sm:text-lg">
+                            "الذكاء العاطفي هو الذكاء الذي سيبقي الإنسان في موقع القيادة المستقبلية."
+                        </div>
+                        <button onclick="navigateToTab('assessmentTab')" class="px-5 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap">
+                            خُض التقييم الذاتي الشامل الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أزرار التنقل السلس -->
+            <div class="flex items-center justify-between pt-6">
+                <button onclick="navigateToTab('module2')" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>الوحدة السابقة</span>
+                </button>
+                <button onclick="navigateToTab('assessmentTab')" class="px-6 py-2.5 rounded-xl bg-cscs-600 hover:bg-cscs-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                    <span>الانتقال لمقياس التقييم الذاتي</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- أداة تقييم الذكاء العاطفي الذاتي التفاعلية (EQ Self-Assessment) -->
+        <!-- ============================================== -->
+        <section id="tab-assessmentTab" class="tab-content hidden space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
+                <div class="flex items-center gap-2 text-xs font-bold text-gold-600 dark:text-gold-400 uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-chart-line"></i> أداة تشخيصية معتمدة
+                </div>
+                <h2 class="text-3xl font-extrabold text-cscs-800 dark:text-cscs-100">مقياس التقييم الذاتي للذكاء العاطفي (EQ Assessment)</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    أجب على العبارات التالية بصدق وموضوعية لقياس مستواك في الأبعاد الخمسة والحصول على تقرير بياني مفصل.
+                </p>
+            </div>
+
+            <!-- بطاقة الاستبيان التفاعلي -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <form id="eqAssessmentForm" onsubmit="calculateEQ(event)" class="space-y-6">
+                    
+                    <!-- الأسئلة المقسمة على الأبعاد الخمسة -->
+                    <div class="space-y-6">
+                        
+                        <!-- 1. الوعي بالذات -->
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                            <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                                1. عندما أشعر بالتوتر أو الغضب أثناء ساعات العمل، أدرك تماماً السبب الحقيقي وراء هذا الشعور وتأثيره على قراراتي.
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q1" value="1" required class="hidden"> نادراً جداً (1)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q1" value="2" class="hidden"> أحياناً (2)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q1" value="3" class="hidden"> غالباً (3)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q1" value="4" class="hidden"> دائماً باستمرار (4)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 2. إدارة الذات -->
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                            <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                                2. أستطيع التحكم في انفعالاتي وردود أفعالي حتى في المواقف الاستفزازية أو عند مواجهة ضغوط حادة.
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q2" value="1" required class="hidden"> نادراً جداً (1)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q2" value="2" class="hidden"> أحياناً (2)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q2" value="3" class="hidden"> غالباً (3)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q2" value="4" class="hidden"> دائماً باستمرار (4)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 3. التحفيز الذاتي -->
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                            <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                                3. أمتلك حافزاً داخلياً قوياً للإنجاز والجودة، ولا أعتمد فقط على الحوافز والمكافآت الخارجية لمواصلة العمل.
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q3" value="1" required class="hidden"> نادراً جداً (1)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q3" value="2" class="hidden"> أحياناً (2)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q3" value="3" class="hidden"> غالباً (3)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q3" value="4" class="hidden"> دائماً باستمرار (4)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 4. التعاطف -->
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                            <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                                4. أستطيع بسهولة استشعار مشاعر الزملاء من خلال تعابير وجوههم ونبرة أصواتهم، وأضع نفسي مكانهم لفهم وجهة نظرهم.
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q4" value="1" required class="hidden"> نادراً جداً (1)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q4" value="2" class="hidden"> أحياناً (2)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q4" value="3" class="hidden"> غالباً (3)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q4" value="4" class="hidden"> دائماً باستمرار (4)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 5. المهارات الاجتماعية -->
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                            <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                                5. أنجح في بناء علاقات قائمة على الثقة، وأستطيع تقريب وجهات النظر وفض الخلافات بين أعضاء الفريق بمرونة وهدوء.
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q5" value="1" required class="hidden"> نادراً جداً (1)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q5" value="2" class="hidden"> أحياناً (2)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q5" value="3" class="hidden"> غالباً (3)
+                                </label>
+                                <label class="cursor-pointer p-2 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-cscs-50 dark:hover:bg-cscs-900/50 has-[:checked]:bg-cscs-600 has-[:checked]:text-white">
+                                    <input type="radio" name="eq_q5" value="4" class="hidden"> دائماً باستمرار (4)
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-cscs-600 hover:bg-cscs-700 text-white font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>تحليل النتيجة وعرض التقرير البياني</span>
+                    </button>
+                </form>
+
+                <!-- تقرير النتيجة الفوري -->
+                <div id="eqResultContainer" class="hidden mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <div class="p-6 rounded-2xl bg-cscs-50 dark:bg-slate-800 border border-cscs-200 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                            <h3 class="text-xl font-bold text-cscs-800 dark:text-cscs-200">تقرير كفاءتك في الذكاء العاطفي</h3>
+                            <span id="eqScoreBadge" class="px-3.5 py-1 rounded-full text-xs font-black bg-cscs-600 text-white"></span>
+                        </div>
+
+                        <p id="eqRecommendationText" class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-6"></p>
+
+                        <!-- الرسوم البيانية للأبعاد الخمسة -->
+                        <div class="space-y-4" id="eqDimensionsBars">
+                            <!-- توليد تلقائي للبارات -->
+                        </div>
+
+                        <div class="mt-8 flex justify-end">
+                            <button onclick="navigateToTab('finalExamTab')" class="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-bold text-sm shadow transition-all flex items-center gap-2">
+                                <span>الانتقال للاختبار النهائي والشهادة</span>
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- الاختبار التحصيلي النهائي والشهادة المعتمدة -->
+        <!-- ============================================== -->
+        <section id="tab-finalExamTab" class="tab-content hidden space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
+                <div class="flex items-center gap-2 text-xs font-bold text-gold-600 dark:text-gold-400 uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-graduation-cap"></i> التقييم الختامي
+                </div>
+                <h2 class="text-3xl font-extrabold text-cscs-800 dark:text-cscs-100">الاختبار التحصيلي والشهادة المعتمدة</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    أكمل الاختبار النهائي المكون من أسئلة شاملة للمنهاج الأصلي لاجتياز الدورة واستخراج شهادة الإتمام باسمك.
+                </p>
+            </div>
+
+            <!-- نموذج الاختبار النهائي -->
+            <div id="examFormCard" class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div class="mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+                    <label class="block text-sm font-bold text-slate-900 dark:text-white mb-2">
+                        اسم المتدرب الرباعي (الذي سيظهر في الشهادة المعتمدة):
+                    </label>
+                    <input type="text" id="traineeNameInput" placeholder="مثال: د. عبد الله بن محمد المنصور" required class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cscs-500 text-sm font-semibold">
+                </div>
+
+                <form id="finalExamForm" onsubmit="evaluateFinalExam(event)" class="space-y-6">
+                    
+                    <!-- س1 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                        <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                            1. أي من النماذج التالية يركز على الذكاء العاطفي بوصفه "قدرة معرفية نقية" تتعلق بمعالجة المعلومات الانفعالية؟
+                        </label>
+                        <div class="space-y-2 text-xs sm:text-sm">
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q1" value="A" required class="accent-cscs-600"> نموذج ماير وسالوفي (Mayer & Salovey)
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q1" value="B" class="accent-cscs-600"> نموذج بار-أون للسمات الشخصية
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q1" value="C" class="accent-cscs-600"> نموذج ماسلو للاحتياجات
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- س2 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                        <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                            2. ما هو المكون الذي يمثل حجر الأساس الذي تبنى عليه جميع المهارات العاطفية الأخرى وفق نموذج دانيال جولمان؟
+                        </label>
+                        <div class="space-y-2 text-xs sm:text-sm">
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q2" value="A" class="accent-cscs-600"> المهارات الاجتماعية
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q2" value="B" required class="accent-cscs-600"> الوعي بالذات (Self-Awareness)
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q2" value="C" class="accent-cscs-600"> التحفيز الخارجي
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- س3 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                        <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                            3. عندما يواجه القائد مقاومة موظفيه للتحول الرقمي، ما هو التفسير الأكثر عمقاً لهذه المقاومة وفق الذكاء العاطفي؟
+                        </label>
+                        <div class="space-y-2 text-xs sm:text-sm">
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q3" value="A" class="accent-cscs-600"> الرغبة في إفشال الإدارة والمؤسسة
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q3" value="B" required class="accent-cscs-600"> الخوف الطبيعي من المجهول وفقدان الأمان المهني
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q3" value="C" class="accent-cscs-600"> عدم وجود وقت كافٍ للعمل
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- س4 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                        <label class="block text-sm font-bold text-slate-800 dark:text-slate-100 mb-2">
+                            4. لماذا يُعتبر الذكاء العاطفي "الذكاء الذي سيبقي الإنسان في موقع القيادة" في عصر الذكاء الاصطناعي؟
+                        </label>
+                        <div class="space-y-2 text-xs sm:text-sm">
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q4" value="A" required class="accent-cscs-600"> لأنه يمثل المهارات الإنسانية الأصيلة كالتعاطف والأخلاق والإبداع التي يستحيل أتمتتها
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q4" value="B" class="accent-cscs-600"> لأن الآلات والذكاء الاصطناعي لا تستطيع معالجة الأرقام والبيانات
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                <input type="radio" name="ex_q4" value="C" class="accent-cscs-600"> لأن الذكاء الاصطناعي سيتوقف عن التطور قريباً
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gold-500 hover:bg-gold-600 text-slate-950 font-black text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stamp"></i>
+                        <span>تصحيح الاختبار وإصدار الشهادة الرسمية</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- حاوية الشهادة الرسمية القابلة للطباعة والتنزيل -->
+            <div id="certificateContainer" class="hidden">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                        <i class="fa-solid fa-circle-check ml-1"></i> مبروك! تم اجتياز متطلبات الحقيبة بنجاح.
+                    </span>
+                    <button onclick="window.print()" class="px-5 py-2 rounded-xl bg-cscs-600 hover:bg-cscs-700 text-white font-bold text-xs shadow flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i>
+                        <span>طباعة / حفظ الشهادة PDF</span>
+                    </button>
+                </div>
+
+                <!-- إطار الشهادة المعتمدة الفاخر -->
+                <div id="printableCertificate" class="bg-white text-slate-900 rounded-3xl p-8 md:p-12 border-8 border-double border-cscs-700 shadow-2xl relative overflow-hidden text-center">
+                    
+                    <!-- زخرفة خلفية -->
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-cscs-50 rounded-full pointer-events-none"></div>
+                    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-gold-50 rounded-full pointer-events-none"></div>
+
+                    <!-- الترويسة والشعار الرسمي في الشهادة -->
+                    <div class="flex items-center justify-between border-b-2 border-cscs-100 pb-6 mb-8 relative z-10">
+                        <div class="text-right">
+                            <div class="text-cscs-800 font-black text-sm">المملكة العربية السعودية</div>
+                            <div class="text-slate-500 text-xs font-semibold">مجلس الجمعيات التعاونية</div>
+                            <div class="text-cscs-600 text-xs font-bold font-tajawal">مركز التدريب المعتمد</div>
+                        </div>
+
+                        <!-- الشعار في الشهادة -->
+                        <div class="flex items-center gap-2">
+                            <div class="w-12 h-12 flex-shrink-0">
+                                <svg viewBox="0 0 100 100" class="w-full h-full text-cscs-600 fill-current">
+                                    <path d="M78 8 L95 24 L95 92 L78 92 Z" fill="#006c7e"/>
+                                    <path d="M52 24 L70 40 L70 92 L52 92 Z" fill="#008ba3"/>
+                                    <path d="M26 40 L44 56 L44 92 L26 92 Z" fill="#3faec1"/>
+                                </svg>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs font-extrabold text-cscs-700 leading-tight">مركز تدريب مجلس الجمعيات التعاونية</div>
+                                <div class="text-[9px] text-slate-500 font-tajawal">CSCS TRAINING CENTER</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- صلب الشهادة -->
+                    <div class="space-y-4 my-6 relative z-10">
+                        <div class="inline-block px-4 py-1 rounded-full bg-gold-400/20 text-gold-600 font-black text-xs">
+                            شهادة إتمام برنامج تدريبي متخصص
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-black text-cscs-900 tracking-tight">
+                            يُشهد مركز التدريب بمجلس الجمعيات التعاونية بأن:
+                        </h3>
+
+                        <div class="text-2xl sm:text-4xl font-extrabold text-cscs-700 border-b-2 border-dashed border-cscs-300 inline-block px-8 py-2 my-2" id="certTraineeName">
+                            المتدرب
+                        </div>
+
+                        <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                            قد أتم بنجاح متطلبات واختبارات الحقيبة التدريبية المتخصصة في:
+                        </p>
+
+                        <div class="text-xl sm:text-2xl font-black text-slate-900 bg-slate-50 py-2.5 rounded-xl border border-slate-200 max-w-xl mx-auto">
+                            الذكاء العاطفي في بيئة العمل والقيادة
+                        </div>
+
+                        <p class="text-xs text-slate-500">
+                            بمعدل إتقان معتمد استوفى كافة المحاور (الأبعاد الخمسة، النماذج النظرية، القيادة وإدارة التغيير، وتطبيقات الذكاء الاصطناعي).
+                        </p>
+                    </div>
+
+                    <!-- التواقيع والأختام -->
+                    <div class="pt-8 mt-8 border-t border-slate-200 grid grid-cols-3 gap-4 items-center text-xs relative z-10">
+                        <div>
+                            <div class="text-slate-400 font-bold mb-1">تاريخ الإصدار</div>
+                            <div class="font-extrabold text-slate-700" id="certDate"></div>
+                        </div>
+
+                        <!-- الختم الرقمي المعتمد لمركز التدريب -->
+                        <div class="flex justify-center">
+                            <div class="w-20 h-20 rounded-full border-2 border-dashed border-cscs-600 flex flex-col items-center justify-center p-1 text-[9px] text-cscs-700 font-black">
+                                <i class="fa-solid fa-stamp text-xs text-gold-500 mb-0.5"></i>
+                                <span>مركز التدريب</span>
+                                <span>معتمد رسمي</span>
+                                <span>CSCS</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-slate-400 font-bold mb-1">الاعتماد الأكاديمي</div>
+                            <div class="font-black text-cscs-800">إدارة التطوير والتدريب</div>
+                            <div class="text-[10px] text-slate-400 font-tajawal">مجلس الجمعيات التعاونية</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- الفوتر المؤسسي الرسمي (Footer) متوافق مع cscs.org.sa و cscstraining.sa -->
+    <footer class="bg-cscs-950 text-white border-t border-cscs-800 mt-16 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- نبذة عن المركز -->
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-cscs-900 rounded-xl flex items-center justify-center border border-cscs-700">
+                            <svg viewBox="0 0 100 100" class="w-6 h-6 fill-current text-cscs-400">
+                                <path d="M78 8 L95 24 L95 92 L78 92 Z" fill="#3faec1"/>
+                                <path d="M52 24 L70 40 L70 92 L52 92 Z" fill="#008ba3"/>
+                                <path d="M26 40 L44 56 L44 92 L26 92 Z" fill="#006c7e"/>
+                            </svg>
+                        </div>
+                        <span class="text-base font-extrabold tracking-tight">مركز تدريب مجلس الجمعيات التعاونية</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed max-w-md">
+                        الذراع التدريبي والمعرفي الرسمي لمجلس الجمعيات التعاونية بالمملكة العربية السعودية، يُعنى بتأهيل وتمكين الكفاءات البشرية والقيادات الوطنية وفق أفضل المعايير المهنية والاحترافية.
+                    </p>
+                    <div class="flex items-center gap-3 text-slate-400 text-sm pt-2">
+                        <a href="https://www.cscstraining.sa" target="_blank" class="hover:text-gold-400 transition-colors flex items-center gap-1 text-xs">
+                            <i class="fa-solid fa-globe"></i> منصة التدريب (cscstraining.sa)
+                        </a>
+                        <span>&bull;</span>
+                        <a href="https://www.cscs.org.sa" target="_blank" class="hover:text-gold-400 transition-colors flex items-center gap-1 text-xs">
+                            <i class="fa-solid fa-building-columns"></i> بوابة المجلس (cscs.org.sa)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة للوحدات -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold-300 mb-4 pb-2 border-b border-cscs-800">وحدات الحقيبة</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><button onclick="navigateToTab('module1')" class="hover:text-gold-300 transition-colors">1. ماهية الذكاء العاطفي وأبعاده</button></li>
+                        <li><button onclick="navigateToTab('module2')" class="hover:text-gold-300 transition-colors">2. الذكاء العاطفي في بيئات العمل</button></li>
+                        <li><button onclick="navigateToTab('module3')" class="hover:text-gold-300 transition-colors">3. تنمية الذكاء العاطفي وتطبيقاته</button></li>
+                        <li><button onclick="navigateToTab('assessmentTab')" class="hover:text-gold-300 transition-colors">مقياس التقييم الذاتي (EQ)</button></li>
+                    </ul>
+                </div>
+
+                <!-- الموثوقية والتواصل -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold-300 mb-4 pb-2 border-b border-cscs-800">بيانات الاعتماد</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                        المملكة العربية السعودية - الرياض<br>
+                        إدارة التدريب وتطوير القدرات
+                    </p>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cscs-900 border border-cscs-800 text-[11px] text-emerald-400">
+                        <i class="fa-solid fa-shield-check"></i> محتوى تدريبي قياسي محكّم
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-cscs-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <div>
+                    جميع الحقوق محفوظة &copy; <span id="currentYear"></span> لـ <strong>مركز تدريب مجلس الجمعيات التعاونية (CSCS)</strong>
+                </div>
+                <div class="flex items-center gap-4 text-xs">
+                    <span>الرؤية والرسالة</span>
+                    <span>سياسة الخصوصية</span>
+                    <span>معايير الجودة الأكاديمية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة إرشادات المتدرب التعليمية (Modal) -->
+    <div id="instructionsModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h3 class="text-lg font-bold text-cscs-800 dark:text-cscs-200 flex items-center gap-2">
+                    <i class="fa-solid fa-compass text-gold-500"></i> دليل المتدرب للتعلم التفاعلي
+                </h3>
+                <button onclick="scrollToSection('instructionsModal')" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>مرحباً بك في منصة التدريب الإلكتروني لمركز مجلس الجمعيات التعاونية. لتحقيق أقصى استفادة تعليمية:</p>
+                <ul class="list-disc list-inside space-y-1.5 pr-2">
+                    <li>تتبع الوحدات التعليمية بالترتيب التراكمي الموصى به.</li>
+                    <li>تفاعل مع البطاقات التوضيحية وتمرين التنفس التكتيكي لترسيخ التطبيق.</li>
+                    <li>أجب عن التقييم الذاتي لـ EQ لمعرفة نقاط قوتك واحتياجاتك التدريبية.</li>
+                    <li>اجتز الاختبار النهائي لإصدار شهادة الإتمام المعتمدة وتنزيلها مباشرة.</li>
+                </ul>
+            </div>
+            <div class="mt-6">
+                <button onclick="scrollToSection('instructionsModal')" class="w-full py-2.5 rounded-xl bg-cscs-600 hover:bg-cscs-700 text-white font-bold text-xs shadow transition-all">
+                    فهمت ذلك، ابدأ التعلّم
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- المنطق البرمجي التفاعلي (JavaScript) -->
+    <script>
+        // ضبط السنة الحالية
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 1. نظام التنقل التفاعلي بين التبويبات (Tabs Navigation)
+        function navigateToTab(tabId) {
+            // إخفاء كافة المحتويات
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // إظهار التبويب المطلوب
+            const target = document.getElementById('tab-' + tabId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // تحديث أزرار التنقل النشطة
+            const buttons = document.querySelectorAll('.nav-tab-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-target') === tabId) {
+                    btn.classList.add('bg-cscs-50', 'dark:bg-slate-800', 'text-cscs-700', 'dark:text-cscs-300', 'font-bold');
+                } else {
+                    btn.classList.remove('bg-cscs-50', 'dark:bg-slate-800', 'text-cscs-700', 'dark:text-cscs-300');
+                }
+            });
+
+            // تحديث شريط التقدم التعليمي العام
+            updateCourseProgress(tabId);
+        }
+
+        // 2. تحديث مؤشر التقدم التعليمي
+        function updateCourseProgress(tabId) {
+            const bar = document.getElementById('courseProgressBar');
+            let progress = 10;
+            if (tabId === 'overview') progress = 15;
+            else if (tabId === 'module1') progress = 40;
+            else if (tabId === 'module2') progress = 65;
+            else if (tabId === 'module3') progress = 85;
+            else if (tabId === 'assessmentTab') progress = 92;
+            else if (tabId === 'finalExamTab') progress = 100;
+            bar.style.width = progress + '%';
+        }
+
+        // 3. التبديل للوضع الليلي / النهاري
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // فحص الوضع المفضل للمستخدم مسبقاً
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // 4. التحكم في حجم الخط لسهولة القراءة (Accessibility)
+        let currentFontSize = 16;
+        function changeFontSize(direction) {
+            currentFontSize += direction;
+            if (currentFontSize < 13) currentFontSize = 13;
+            if (currentFontSize > 22) currentFontSize = 22;
+            document.getElementById('mainContainer').style.fontSize = currentFontSize + 'px';
+        }
+
+        // 5. تبديل القائمة في الأجهزة الذكية
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 6. فتح وإغلاق نافذة الدليل
+        function scrollToSection(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // 7. تفاصيل الأبعاد الخمسة التفاعلية
+        const pillarData = {
+            selfAwareness: {
+                title: "1. الوعي بالذات (Self-Awareness)",
+                content: "يتطلب الوعي بالذات تدريباً يومياً على رصد المشاعر لحظة وقوعها. من مهاراته الأساسية: الوعي العاطفي الدقيق، والتقييم الموضوعي للذات (معرفة نقاط القوة والضعف بدون مواربة)، والثقة بالنفس القائمة على قدرات حقيقية."
+            },
+            selfRegulation: {
+                title: "2. إدارة الذات (Self-Regulation)",
+                content: "تتضمن مهارات ضبط النفس التوقف قبل التصرف (Pause before Reacting)، وإدارة الضغوط والمشاعر المزعجة، والتكيف السريع مع المتغيرات غير المتوقعة، والنزاهة المؤسسية عبر تحمل المسؤولية الكاملة عن الأخطاء الشخصية."
+            },
+            selfMotivation: {
+                title: "3. التحفيز الذاتي (Self-Motivation)",
+                content: "يتميز أصحاب هذا البُعد بدافع الإنجاز المستمر للوصول إلى أعلى معايير التميز، والالتزام بأهداف المنظمة، والمبادرة لاغتنام الفرص قبل أن تُطلب منهم، والتفاؤل الواقعي والإصرار رغم الإخفاقات العابرة."
+            },
+            empathy: {
+                title: "4. التعاطف (Empathy)",
+                content: "التعاطف لا يعني بالضرورة الموافقة على سلوك الآخر، بل يعني فهم دوافعه ومشاعره. يتضمن: فهم الآخرين، وتنمية وتوجيه قدرات الزملاء، والوعي بالبيئة المؤسسية والتنوع الثقافي داخل فريق العمل التعاوني."
+            },
+            socialSkills: {
+                title: "5. المهارات الاجتماعية (Social Skills)",
+                content: "تعد قمة الهرم العاطفي وتتضمن: القيادة الملهمة، والتأثير الإيجابي، والاتصال الواضح، وبناء التحالفات والشراكات، وإدارة النزاعات بنهج المكسب المشترك (Win-Win)، وبناء فرق العمل عالية التعاون."
+            }
+        };
+
+        function showPillarDetails(pillarKey) {
+            const data = pillarData[pillarKey];
+            if (data) {
+                const titleElem = document.getElementById('pillarDetailTitle');
+                const contentElem = document.getElementById('pillarDetailContent');
+                titleElem.innerHTML = `<i class="fa-solid fa-circle-check text-cscs-600 ml-1"></i> ${data.title}`;
+                contentElem.textContent = data.content;
+            }
+        }
+
+        // 8. فحص إجابة نشاط الوحدة الأولى
+        function checkActivityAnswer(qNum, selectedOption) {
+            const feedback = document.getElementById('q1Feedback');
+            feedback.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            
+            if (selectedOption === 2) {
+                feedback.classList.add('bg-emerald-100', 'text-emerald-900', 'border', 'border-emerald-300');
+                feedback.innerHTML = `<strong><i class="fa-solid fa-circle-check ml-1"></i> إجابة نموذجية صحيحة:</strong> أخذ الأنفاس وتهدئة الاستثارة الفسيولوجية هو جوهر (إدارة الذات)؛ فالتأخير المتعمد للرد يحمي من ردود الفعل الانفعالية ويحفظ العلاقات المؤسسية.`;
+            } else {
+                feedback.classList.add('bg-rose-100', 'text-rose-900', 'border', 'border-rose-300');
+                feedback.innerHTML = `<strong><i class="fa-solid fa-triangle-exclamation ml-1"></i> غير دقيق:</strong> الرد المباشر أثناء الغضب أو الهروب يعكس انخفاضاً في ضبط الذات. الخيار (ب) هو التطبيق السليم لمهارة التحكم الانفعالي.`;
+            }
+        }
+
+        // 9. فحص دراسة حالة الوحدة الثانية
+        function checkCaseStudy(option) {
+            const feedback = document.getElementById('caseFeedback');
+            feedback.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if (option === 2) {
+                feedback.classList.add('bg-emerald-100', 'text-emerald-900', 'border', 'border-emerald-300');
+                feedback.innerHTML = `<strong><i class="fa-solid fa-circle-check ml-1"></i> تصرف قيادي احترافي:</strong> القائد الذكي عاطفياً يعي أن مقاومة التغيير منبعها الخوف على الأمان المهني، لذا فإن التعاطف والشرح وتوفير التدريب يزيل الحاجز النفسي ويضمن نجاح التحول التنظيمي.`;
+            } else {
+                feedback.classList.add('bg-rose-100', 'text-rose-900', 'border', 'border-rose-300');
+                feedback.innerHTML = `<strong><i class="fa-solid fa-triangle-exclamation ml-1"></i> خيار غير فعال:</strong> الإجبار يزيد المقاومة الخفية، والتراجع التام يوقف تطور المؤسسة التعاونية. الحل الأمثل هو الخيار (ب) عبر الإشراك والتطمين الإنساني.`;
+            }
+        }
+
+        // 10. حساب نتيجة مقياس الذكاء العاطفي الذاتي
+        function calculateEQ(e) {
+            e.preventDefault();
+            const form = document.getElementById('eqAssessmentForm');
+            const formData = new FormData(form);
+
+            const q1 = parseInt(formData.get('eq_q1')) || 0;
+            const q2 = parseInt(formData.get('eq_q2')) || 0;
+            const q3 = parseInt(formData.get('eq_q3')) || 0;
+            const q4 = parseInt(formData.get('eq_q4')) || 0;
+            const q5 = parseInt(formData.get('eq_q5')) || 0;
+
+            const totalScore = q1 + q2 + q3 + q4 + q5; // من 20
+            const percentage = Math.round((totalScore / 20) * 100);
+
+            const resultContainer = document.getElementById('eqResultContainer');
+            const badge = document.getElementById('eqScoreBadge');
+            const rec = document.getElementById('eqRecommendationText');
+            const bars = document.getElementById('eqDimensionsBars');
+
+            badge.textContent = `النتيجة الإجمالية: ${percentage}% (${totalScore} من 20)`;
+
+            if (percentage >= 80) {
+                rec.innerHTML = `<span class="text-emerald-600 font-bold">مستوى ذكاء عاطفي قيادي متميز:</span> تُظهر مؤشراتك قدرة عالية على قراءة المشاعر الذاتية وإدارتها بكفاءة، وتطبيق التعاطف مع فريق العمل، مما يجعلك نموذجاً قيادياً ملهماً في بيئة العمل التعاونية.`;
+            } else if (percentage >= 60) {
+                rec.innerHTML = `<span class="text-cscs-600 font-bold">مستوى ذكاء عاطفي جيد مع فرص تطويرية:</span> تمتلك أساساً إيجابياً متيناً، وتحتاج لمزيد من الممارسة في إعادة التقييم المعرفي وضبط الانفعالات اللحظية أثناء الأزمات.`;
+            } else {
+                rec.innerHTML = `<span class="text-amber-600 font-bold">حاجة إلى تعزيز المهارات العاطفية الأساسية:</span> يُنصح بالتركيز على ممارسة التأمل الذاتي، وكتابة دفتر اليوميات لرصد مثيرات التوتر قبل اتخاذ القرارات.`;
+            }
+
+            // رسم بياني مصغر للأبعاد الخمسة
+            const dimensions = [
+                { name: "الوعي بالذات", score: (q1 / 4) * 100 },
+                { name: "إدارة الذات وضبط النفس", score: (q2 / 4) * 100 },
+                { name: "التحفيز الذاتي الداخلي", score: (q3 / 4) * 100 },
+                { name: "التعاطف الوجداني", score: (q4 / 4) * 100 },
+                { name: "المهارات الاجتماعية والتأثير", score: (q5 / 4) * 100 }
+            ];
+
+            bars.innerHTML = '';
+            dimensions.forEach(dim => {
+                bars.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                            <span>${dim.name}</span>
+                            <span>${dim.score}%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-cscs-600 h-full rounded-full transition-all duration-700" style="width: ${dim.score}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            resultContainer.classList.remove('hidden');
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 11. تصحيح الاختبار النهائي وإصدار الشهادة الرسمية
+        function evaluateFinalExam(e) {
+            e.preventDefault();
+            const traineeName = document.getElementById('traineeNameInput').value.trim();
+            if (!traineeName) {
+                return;
+            }
+
+            const form = document.getElementById('finalExamForm');
+            const data = new FormData(form);
+
+            // الإجابات الصحيحة: س1 -> A, س2 -> B, س3 -> B, س4 -> A
+            let score = 0;
+            if (data.get('ex_q1') === 'A') score++;
+            if (data.get('ex_q2') === 'B') score++;
+            if (data.get('ex_q3') === 'B') score++;
+            if (data.get('ex_q4') === 'A') score++;
+
+            // النجاح من 3 من 4 (75%)
+            if (score >= 3) {
+                document.getElementById('examFormCard').classList.add('hidden');
+                const certContainer = document.getElementById('certificateContainer');
+                document.getElementById('certTraineeName').textContent = traineeName;
+                
+                // تنسيق تاريخ اليوم باللغة العربية
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('certDate').textContent = new Date().toLocaleDateString('ar-SA', options);
+
+                certContainer.classList.remove('hidden');
+                certContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // استخدام رسالة مخصصة مدمجة بدلاً من alert
+                const alertDiv = document.createElement('div');
+                alertDiv.className = "p-4 my-4 rounded-xl bg-rose-100 text-rose-900 border border-rose-300 text-sm font-bold flex items-center justify-between";
+                alertDiv.innerHTML = `
+                    <span><i class="fa-solid fa-circle-exclamation ml-2"></i> لقد حققت ${score} من 4. نوصي بمراجعة محتوى الوحدات التدريبية وإعادة المحاولة للاجتياز واستحقاق الشهادة.</span>
+                    <button onclick="this.parentElement.remove()" class="text-rose-700 hover:text-rose-950">&times;</button>
+                `;
+                form.prepend(alertDiv);
+            }
+        }
+    </script>
+</body>
+</html>
